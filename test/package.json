@@ -14,5 +14,23 @@
     "jest-junit": "^16.0.0",
     "jest-reporter": "^1.0.1",
     "supertest": "^6.3.3"
+  },
+  "jest": {
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Test Report",
+          "outputPath": "./reports/test-report.html"
+        }
+      ],
+      [
+        "jest-junit", {
+          "outputDirectory": "reports",
+          "outputName": "jest-junit.xml"
+        }
+      ]
+    ]
   }
 }

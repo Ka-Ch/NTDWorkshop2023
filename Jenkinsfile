@@ -28,19 +28,6 @@ pipeline {
                 sh 'docker cp report-container:/root/reports/. ${WORKSPACE}/reports'
             }
         }
-        stage('Publish Test Results') {
-            steps {
-                junit skipPublishingChecks: true, testResults: 'reports/jest-junit.xml'
-                publishHTML target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: 'reports',
-                    reportFiles: 'test-report.html',
-                    reportName: 'Test Results'
-                ]
-            }
-        }
         stage('Cleanup') {
             steps {
                 sh 'docker kill api-container'
