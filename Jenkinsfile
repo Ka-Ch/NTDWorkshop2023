@@ -13,7 +13,7 @@ pipeline {
                 }
         stage('Build Test container') {
             steps {
-                sh 'docker build tests -t karolinacharcenkaite/movie-api-tests'
+                sh 'docker build test -t karolinacharcenkaite/movie-api-tests'
             }
         }
         stage('Execute tests') {
