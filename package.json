@@ -12,5 +12,23 @@
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.20"
+  },
+  "jest": {
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Test Report",
+          "outputPath": "./reports/test-report.html"
+        }
+      ],
+      [
+        "jest-junit", {
+          "outputDirectory": "reports",
+          "outputName": "jest-junit.xml"
+        }
+      ]
+    ]
   }
 }
