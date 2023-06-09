@@ -1,4 +1,7 @@
- stage('Build API container') {
+pipeline {
+    agent any
+    stages {
+         stage('Build API container') {
             steps {
                 sh 'docker build . -t karolinacharcenkaite/movie-api'
             }
@@ -23,3 +26,8 @@
                 sh 'docker kill api-container'
             }
         }
+    }
+}
+
+
+
