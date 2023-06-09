@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Execute tests') {
             steps {
-                sh 'docker run -e PORT=3000 -e BASE_URI=172.17.0.2 --network bridge --rm karolinacharcenkaite/movie-api-tests'
+                sh 'docker run -e PORT=3000 -e BASE_URI=172.17.0.2 --network bridge -v test-reports:/usr/src/app --rm karolinacharcenkaite/movie-api-tests'
             }
         }
         stage('Cleanup') {
